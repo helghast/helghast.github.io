@@ -30,6 +30,10 @@
       <p class="hero-links">
         <a class="btn" href="https://www.linkedin.com/in/jacobo-carreras-romero" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-ghost" href="https://github.com/helghast" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost js-email" href="#contact">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Email
+        </a>
       </p>
     </section>
 
@@ -258,11 +262,17 @@
 
     <section id="contact" class="wrap">
       <h2>Contact</h2>
-      <p>Interested in working together? Reach out through LinkedIn.</p>
+      <p>Interested in working together? Reach out through LinkedIn or email.</p>
       <p class="hero-links">
         <a class="btn" href="https://www.linkedin.com/in/jacobo-carreras-romero" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-ghost" href="https://github.com/helghast" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost js-email" href="#contact">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Email
+        </a>
       </p>
+      <p class="muted email-line" hidden>Or write to <span class="js-email-text"></span></p>
+      <noscript><p class="muted">Enable JavaScript to see the email address.</p></noscript>
     </section>
   </main>
 
@@ -272,6 +282,22 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Email is assembled at runtime so it never appears as plain text in the
+    // page source (basic protection against address-harvesting bots).
+    (function () {
+      var addr = 'moc.liamtoh@2_lauzi'.split('').reverse().join('');
+      document.querySelectorAll('.js-email').forEach(function (a) {
+        a.href = 'mailto:' + addr;
+      });
+      document.querySelectorAll('.js-email-text').forEach(function (s) {
+        var link = document.createElement('a');
+        link.href = 'mailto:' + addr;
+        link.textContent = addr;
+        s.appendChild(link);
+      });
+      document.querySelectorAll('.email-line').forEach(function (p) { p.hidden = false; });
+    })();
   </script>
 </body>
 </html>
