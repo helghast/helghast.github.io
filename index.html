@@ -271,8 +271,6 @@
           Email
         </a>
       </p>
-      <p class="muted email-line" hidden>Or write to <span class="js-email-text"></span></p>
-      <noscript><p class="muted">Enable JavaScript to see the email address.</p></noscript>
     </section>
   </main>
 
@@ -290,13 +288,6 @@
       document.querySelectorAll('.js-email').forEach(function (a) {
         a.href = 'mailto:' + addr;
       });
-      document.querySelectorAll('.js-email-text').forEach(function (s) {
-        var link = document.createElement('a');
-        link.href = 'mailto:' + addr;
-        link.textContent = addr;
-        s.appendChild(link);
-      });
-      document.querySelectorAll('.email-line').forEach(function (p) { p.hidden = false; });
     })();
   </script>
 </body>
