@@ -165,26 +165,31 @@ h3 { margin: 0; font-size: 1.05rem; }
 .media summary {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.55rem;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
   list-style: none;
-  color: var(--accent);
-  font-size: 0.9rem;
   user-select: none;
 }
 .media summary::-webkit-details-marker { display: none; }
 .media summary::before {
-  content: "";
-  width: 0.45rem;
-  height: 0.45rem;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: rotate(-45deg);
-  transition: transform 0.15s;
+  content: "+";
+  display: inline-block;
+  width: 1ch;
+  text-align: center;
+  color: var(--accent);
+  font-size: 1.1rem;
+  line-height: 1;
 }
-.media[open] summary::before { transform: rotate(45deg); }
-.media summary span { color: var(--muted); }
-.media summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.media[open] summary::before { content: "\2212"; }
+.media summary:hover { background: rgba(88, 166, 255, 0.12); }
+.media summary span { color: var(--muted); font-weight: 400; }
+.media summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .media-grid {
   display: grid;
